@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Qlcx&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Qlcx's Blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Qlcx's Blog">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qlcx's Blog">
+<meta name="twitter:description">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Qlcx&#39;s Blog" rel="home">Qlcx&#39;s Blog</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">持续研究中。。。</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-gulp学习" class="post-gulp学习 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/04/27/gulp学习/">gulp学习</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/04/27/gulp学习/" data-id="cinirk1ae0000uspbjf7ket17" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp?"></a>什么是gulp?</h1><p>gulp是一个前端项目构建工具，通过gulp你可以对你的项目进行编译，并且压缩你的js、css文件和你的图片资源。<br>下面我们通过一个例子来学习gulp。</p>
+<h3 id="1-安装node-js"><a href="#1-安装node-js" class="headerlink" title="1. 安装node.js"></a>1. 安装node.js</h3><p>。。。</p>
+<h3 id="2-安装Gulp"><a href="#2-安装Gulp" class="headerlink" title="2. 安装Gulp"></a>2. 安装Gulp</h3><pre><code>npm install gulp -g
+</code></pre><p><em>note: <strong>使用gulp -v命令查看Gulp是否安装成功</strong></em></p>
+<h3 id="3-新建一个项目"><a href="#3-新建一个项目" class="headerlink" title="3. 新建一个项目"></a>3. 新建一个项目</h3><h4 id="3-1-创建一个文件夹名字叫test，它包含一些子文件夹，参照如下的树形图创建"><a href="#3-1-创建一个文件夹名字叫test，它包含一些子文件夹，参照如下的树形图创建" class="headerlink" title="3.1 创建一个文件夹名字叫test，它包含一些子文件夹，参照如下的树形图创建:"></a>3.1 创建一个文件夹名字叫<code>test</code>，它包含一些子文件夹，参照如下的树形图创建:</h4><ul>
+<li>src（存放预处理的html文件）<ul>
+<li>images（未压缩的图片文件）</li>
+<li>scripts（多个js文件）</li>
+<li>styles（多个css文件）</li>
+</ul>
+</li>
+<li>build（载入时的文件）<ul>
+<li>images（压缩后的图片文件）</li>
+<li>scripts（单个js文件）</li>
+<li>styles（单个css文件）</li>
+</ul>
+</li>
+</ul>
+<p><em>note：<strong>build文件夹中的文件是自动创建出来的</strong></em></p>
+<h4 id="3-2-install-gulp"><a href="#3-2-install-gulp" class="headerlink" title="3.2 install gulp"></a>3.2 install gulp</h4><pre><code>npm install gulp --save-dev
+</code></pre><p>这会在<code>test</code>文件夹下面创建一个<code>node_modules</code>文件夹其中包含了<code>Gulp</code>等依赖</p>
+<h4 id="3-3-在test文件夹下面创建一个空的gulpfile-js作为配置文件"><a href="#3-3-在test文件夹下面创建一个空的gulpfile-js作为配置文件" class="headerlink" title="3.3 在test文件夹下面创建一个空的gulpfile.js作为配置文件"></a>3.3 在test文件夹下面创建一个空的gulpfile.js作为配置文件</h4><h3 id="4-安装必要的插件"><a href="#4-安装必要的插件" class="headerlink" title="4. 安装必要的插件"></a>4. 安装必要的插件</h3><p>安装JavaScript代码验证工具<code>jshint</code></p>
+<pre><code>npm install jshint gulp-jshint --save-dev
+</code></pre><p>在<code>gulpfile.js</code>文件中添加如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// include gulp</span><br><span class="line">var gulp = require(&apos;gulp&apos;); </span><br><span class="line"></span><br><span class="line">// include plug-ins</span><br><span class="line">var jshint = require(&apos;gulp-jshint&apos;);</span><br><span class="line"></span><br><span class="line">// JS hint task</span><br><span class="line">// 可以将src/scripts文件夹下面的所有js文件pipe到jshint对象，并且console出来</span><br><span class="line">gulp.task(&apos;jshint&apos;, function() &#123;</span><br><span class="line">  gulp.src(&apos;./src/scripts/*.js&apos;)</span><br><span class="line">    .pipe(jshint())</span><br><span class="line">    .pipe(jshint.reporter(&apos;default&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>保存并测试</p>
+<pre><code>gulp jshint
+</code></pre><p>终端输出信息为：</p>
+<pre><code>gulp jshint
+[17:06:07] Using gulpfile ~\Desktop\test\gulpfile.js
+[17:06:07] Starting &apos;jshint&apos;...
+[17:06:07] Finished &apos;jshint&apos; after 9.19 ms
+</code></pre><h3 id="5-添加其他依赖（html、image、js和css文件的压缩功能）"><a href="#5-添加其他依赖（html、image、js和css文件的压缩功能）" class="headerlink" title="5. 添加其他依赖（html、image、js和css文件的压缩功能）"></a>5. 添加其他依赖（html、image、js和css文件的压缩功能）</h3><h4 id="5-1-安装gulp-changed和gulp-imagemin压缩图片"><a href="#5-1-安装gulp-changed和gulp-imagemin压缩图片" class="headerlink" title="5.1 安装gulp-changed和gulp-imagemin压缩图片"></a>5.1 安装<code>gulp-changed</code>和<code>gulp-imagemin</code>压缩图片</h4><pre><code>npm install gulp-changed --save-dev
+npm install gulp-imagemin --save-dev
+</code></pre><p>然后，向gulpfile.js文件中添加依赖和压缩图片的函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var changed = require(&apos;gulp-changed&apos;);</span><br><span class="line">var imagemin = require(&apos;gulp-imagemin&apos;);</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">// minify new images</span><br><span class="line">gulp.task(&apos;imagemin&apos;, function() &#123;</span><br><span class="line">  var imgSrc = &apos;./src/images/**/*&apos;,</span><br><span class="line">      imgDst = &apos;./build/images&apos;;</span><br><span class="line"></span><br><span class="line">  gulp.src(imgSrc)</span><br><span class="line">    .pipe(changed(imgDst))</span><br><span class="line">    .pipe(imagemin())</span><br><span class="line">    .pipe(gulp.dest(imgDst));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>保存并测试压缩图片</p>
+<pre><code>gulp imagemin
+</code></pre><p>终端输出信息为：</p>
+<pre><code>gulp imagemin
+[17:35:26] Using gulpfile ~\Desktop\test\gulpfile.js
+[17:35:26] Starting &apos;imagemin&apos;...
+[17:35:26] Finished &apos;imagemin&apos; after 8.48 ms
+[17:35:26] gulp-imagemin: Minified 0 images 9.19 ms
+</code></pre><h4 id="5-2-安装gulp-minify-html依赖用于压缩html文件"><a href="#5-2-安装gulp-minify-html依赖用于压缩html文件" class="headerlink" title="5.2 安装gulp-minify-html依赖用于压缩html文件"></a>5.2 安装gulp-minify-html依赖用于压缩html文件</h4><pre><code>npm install gulp-minify-html --save-dev
+</code></pre><p>然后，向<code>gulpfile.js</code>文件中添加<code>htmlpage</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// include plug-ins</span><br><span class="line">var minifyHTML = require(&apos;gulp-minify-html&apos;);</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">// minify new or changed HTML pages</span><br><span class="line">gulp.task(&apos;htmlpage&apos;, function() &#123;</span><br><span class="line">  var htmlSrc = &apos;./src/*.html&apos;,</span><br><span class="line">      htmlDst = &apos;./build&apos;;</span><br><span class="line"></span><br><span class="line">  gulp.src(htmlSrc)</span><br><span class="line">    .pipe(changed(htmlDst))</span><br><span class="line">    .pipe(minifyHTML())</span><br><span class="line">    .pipe(gulp.dest(htmlDst));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>保存并测试压缩HTML文件</p>
+<pre><code>gulp htmlpage
+</code></pre><h4 id="5-3-安装依赖合并JS文件，并去除其中的空白和console和debugger这些调试输出语句"><a href="#5-3-安装依赖合并JS文件，并去除其中的空白和console和debugger这些调试输出语句" class="headerlink" title="5.3 安装依赖合并JS文件，并去除其中的空白和console和debugger这些调试输出语句"></a>5.3 安装依赖合并JS文件，并去除其中的空白和<code>console</code>和<code>debugger</code>这些调试输出语句</h4><pre><code>npm install gulp-concat --save-dev 
+npm install gulp-strip-debug --save-dev 
+npm install gulp-uglify --save-dev
+</code></pre><p>然后，向<code>gulpfile.js</code>文件中添加语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// concatenating all JS files</span><br><span class="line">// stripping console and debugger statements</span><br><span class="line">// ripping out whitespace</span><br><span class="line">var concat = require(&apos;gulp-concat&apos;);</span><br><span class="line">var stripDebug = require(&apos;gulp-strip-debug&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">// JS concat, strip debugging and minify</span><br><span class="line">gulp.task(&apos;scripts&apos;, function() &#123;</span><br><span class="line">  gulp.src([&apos;./src/scripts/lib.js&apos;,&apos;./src/scripts/*.js&apos;])</span><br><span class="line">    .pipe(concat(&apos;script.js&apos;))</span><br><span class="line">    .pipe(stripDebug())</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(gulp.dest(&apos;./build/scripts/&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>保存并测试合并压缩JS文件</p>
+<pre><code>gulp scripts
+</code></pre><h4 id="5-4-最后，安装合并CSS文件的依赖"><a href="#5-4-最后，安装合并CSS文件的依赖" class="headerlink" title="5.4 最后，安装合并CSS文件的依赖"></a>5.4 最后，安装合并CSS文件的依赖</h4><pre><code>npm install gulp-autoprefixer --save-dev 
+npm install gulp-minify-css --save-dev
+</code></pre><p>并且，更新gulpfile.js文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// include plug-ins</span><br><span class="line">var autoprefix = require(&apos;gulp-autoprefixer&apos;);</span><br><span class="line">var minifyCSS = require(&apos;gulp-minify-css&apos;);</span><br><span class="line"></span><br><span class="line">// CSS concat, auto-prefix and minify</span><br><span class="line">gulp.task(&apos;styles&apos;, function() &#123;</span><br><span class="line">  gulp.src([&apos;./src/styles/*.css&apos;])</span><br><span class="line">    .pipe(concat(&apos;styles.css&apos;))</span><br><span class="line">    .pipe(autoprefix(&apos;last 2 versions&apos;))</span><br><span class="line">    .pipe(minifyCSS())</span><br><span class="line">    .pipe(gulp.dest(&apos;./build/styles/&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>保存并测试合并压缩CSS文件</p>
+<pre><code>gulp styles
+</code></pre><p><em>note：<strong>The autoprefixer plug-in is passed a string or array indicating the level of browser support.—</strong>  <a href="https://github.com/postcss/autoprefixer" target="_blank" rel="external">autoprefixer插件GITHUB地址</a></em></p>
+<p><strong>一些有用的插件列表</strong></p>
+<ul>
+<li><a href="https://npmjs.org/package/gulp-sass" target="_blank" rel="external">gulp-sass</a> —— node.js版本的CSS预处理器</li>
+<li><a href="https://www.npmjs.com/package/gulp-clean" target="_blank" rel="external">gulp-clean</a> —— 删除不必要的文件和文件夹</li>
+<li><a href="https://www.npmjs.com/package/gulp-file-include" target="_blank" rel="external">gulp-file-include</a> —— use @@include(‘filename’) in any file</li>
+<li><a href="https://www.npmjs.com/package/gulp-size" target="_blank" rel="external">gulp-size</a> —— log file and project file savings</li>
+</ul>
+<h3 id="6-创建默认gulp任务"><a href="#6-创建默认gulp任务" class="headerlink" title="6. 创建默认gulp任务"></a>6. 创建默认gulp任务</h3><p>在<code>gulpfile.js</code>末尾添加如下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// default gulp task</span><br><span class="line">gulp.task(&apos;default&apos;, [&apos;imagemin&apos;, &apos;htmlpage&apos;, &apos;scripts&apos;, &apos;styles&apos;], function() &#123;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>运行命令为：</p>
+<pre><code>gulp
+</code></pre><p> 当你使用此命令的时候这个程序会将你的HTML、JS、CSS文件合并压缩</p>
+<hr>
+<p><strong>参考资料</strong><br><em>gulp.js中文API地址：</em> <a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">http://www.gulpjs.com.cn/docs/api/</a><br><em>An Introduction to Gulp.js：</em><a href="http://www.sitepoint.com/introduction-gulp-js/" target="_blank" rel="external">http://www.sitepoint.com/introduction-gulp-js/</a></p>
+<p><strong>测试网站</strong><br><em>page weight analysis tools：</em><a href="http://www.sitepoint.com/complete-guide-reducing-page-weight/" target="_blank" rel="external">http://www.sitepoint.com/complete-guide-reducing-page-weight/</a><br><em>New Relic：</em><a href="http://newrelic.com/?r=phpm" target="_blank" rel="external">http://newrelic.com/?r=phpm</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/04/27/gulp学习/">
+    <time datetime="2016-04-27T07:37:46.000Z" class="entry-date">
+        2016-04-27
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文章/">文章</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/04/25/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/04/25/hello-world/" data-id="cinirf3ai0001hkpbg6eulvaz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/04/25/hello-world/">
+    <time datetime="2016-04-25T11:42:24.025Z" class="entry-date">
+        2016-04-25
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/04/27/gulp学习/">gulp学习</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/25/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 qlcx
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
