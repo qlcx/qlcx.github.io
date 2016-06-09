@@ -64,6 +64,155 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-git" class="post-git post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/06/09/git/">Git命令</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2016/06/09/git/" data-id="cip7m94ek0000t8pb1fxqoln7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="GIT命令"><a href="#GIT命令" class="headerlink" title="GIT命令"></a>GIT命令</h2><h3 id="1、github使用"><a href="#1、github使用" class="headerlink" title="1、github使用"></a>1、github使用</h3><ul>
+<li>创建SSH key：<code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></li>
+<li>拷贝<font color="red"><code>id_rsa.pub</code></font>文件中的内容</li>
+<li>向github中添加<code>ssh key</code>即可</li>
+</ul>
+<h3 id="2、创建版本库"><a href="#2、创建版本库" class="headerlink" title="2、创建版本库"></a>2、创建版本库</h3><ul>
+<li><code>git init</code>将这个目录变成git可管理的仓库</li>
+<li><code>git add ./&lt;filename&gt;</code>把文件添加到仓库(<font color="red">暂存区</font>)</li>
+<li><font color="red">每一次修改如果不<code>add</code>到暂存区，则不会加入到<code>commit</code>中</font></li>
+<li><code>git commit -m &quot;&lt;state&gt;&quot;</code>将文件提交到仓库 <code>-m</code>后输入本次提交的说明&lt;<font color="red">将暂存区中的所有内容提交到当前分支(创建git版本库时会创建唯一一个master分支)</font>&gt;</li>
+<li><code>git commit --allow-empty-message</code>命令可以省略提交说明</li>
+<li><code>git status</code>显示仓库当前状态</li>
+</ul>
+<h3 id="3、版本管理"><a href="#3、版本管理" class="headerlink" title="3、版本管理"></a>3、版本管理</h3><ul>
+<li><code>git log</code>显示提交的历史记录(<font color="red">查看提交历史以便确定要回退到哪个版本</font>)</li>
+<li><code>git log --pretty=oneline</code>只显示<code>commit id</code></li>
+<li><code>git reset --hard &lt;version&gt;</code>版本回退命令，<code>&lt;version&gt;</code>有两种表示方法：<ul>
+<li>HEAD <font color="red">(git中<code>HEAD</code>表示当前版本，<code>HEAD^</code>表示上一个版本，<code>HEAD^^</code>表示上上个版本，往上100个版本用<code>HEAD~100</code>表示)</font></li>
+<li><code>&lt;commit id&gt;</code>指定回到过去或者未来的某一个版本</li>
+</ul>
+</li>
+<li><code>git reflog</code>用来记录每一次命令(<font color="red">查看命令历史，以便确定要回到未来哪个版本</font>)</li>
+<li><code>git diff HEAD -- &lt;filename&gt;</code>比较工作区中的文件和版本库中最新的版本的区别</li>
+<li><code>git diff &lt;filename&gt;</code>比较未<code>commit</code>的版本和上次修改的版本的区别(<font color="red">当文件<code>add</code>到暂存区中的时候此命令无效</font>)</li>
+<li><code>git checkout -- &lt;filename&gt;</code>把文件在工作区中的修改全部撤销(<font color="red">让文件回到最近一次<code>git add</code>或者<code>git commit</code>后</font>)</li>
+<li><code>git reset HEAD &lt;filename&gt;</code>可以将暂存区中的修改撤销掉，重新放回工作区(<font color="red">暂存区干净，工作区有修改，可以再使用<code>git checkout -- &lt;filename&gt;</code>命令撤销工作区中的修改</font>)<ul>
+<li><code>rm &lt;filename&gt;</code>将工作区中的文件删除</li>
+<li><code>git rm &lt;filename&gt;</code>将该文件从版本库中删除</li>
+<li><code>git checkout -- &lt;filename&gt;</code>撤销文件删除</li>
+</ul>
+</li>
+</ul>
+<h3 id="4、关联远程库以及分支管理"><a href="#4、关联远程库以及分支管理" class="headerlink" title="4、关联远程库以及分支管理"></a>4、关联远程库以及分支管理</h3><ul>
+<li><code>git remote add origin &lt;gitaddress&gt;</code>在本地文件夹下运行此命令可以将本地文件夹与远程库关联起来</li>
+<li><code>git push</code>将本地库推送到远程库中<ul>
+<li><code>git push -u origin master</code>把本地<code>master</code>分支推送到远程，并且将它们关联起来，<font color="red">第一次使用需要加<code>-u</code>参数，<code>origin</code>为远程库的名字，GIT的默认叫法，<code>master</code>也可以改为其他分支</font></li>
+<li><code>git push origin master</code>关联起来后就可以省略<code>-u</code>参数了</li>
+</ul>
+</li>
+<li><code>git checkout -b &lt;name&gt;</code>创建分支并切换到该分支<ul>
+<li><code>git checkout &lt;name&gt;</code>切换分支</li>
+<li><code>git branch &lt;name&gt;</code>创建分支</li>
+</ul>
+</li>
+<li><code>git branch</code>查看当前分支</li>
+<li><code>git merge &lt;name&gt;</code>将分支上的新文件合并到master分支中(<font color="red">没有合并前分支上的修改在master分支上是不可见的</font>)<ul>
+<li><code>--no--ff</code>参数，不加此参数git会使用<code>Fast forward</code>模式(删除分之后会丢掉分支信息)，加上此参数后即为普通模式，可以看到合并历史 </li>
+</ul>
+</li>
+<li><code>git branch -d &lt;name&gt;</code>删除分支<ul>
+<li><code>git branch -D &lt;name&gt;</code>还没有合并就要强行删除分支 </li>
+</ul>
+</li>
+<li>当分支中的内容和master分支中的内容都有修改后，使用<code>git merge</code>命令合并会提示冲突，这个时候使用<code>git status</code>命令找到冲突文件，打开文件修改冲突的地方，就可以<code>git add .</code>、<code>git commit</code>提交了</li>
+<li><code>git log --graph</code>查看分支合并图</li>
+<li><code>git stash</code>保存工作现场</li>
+<li><code>git stash list</code>查看保存的工作现场</li>
+<li>恢复工作现场<ul>
+<li><code>git status apply</code>恢复 + <code>git stash drop</code>删除stash</li>
+<li><code>git status pop</code>恢复并删除stash</li>
+</ul>
+</li>
+<li>如果有多个现场则可以使用<code>git stash apply stash@{0}</code>来选择恢复</li>
+</ul>
+<h3 id="5、多人协作"><a href="#5、多人协作" class="headerlink" title="5、多人协作"></a>5、多人协作</h3><ul>
+<li><code>git remote</code>查看远程库信息<ul>
+<li><code>git remote -v</code>显示远程库详细信息</li>
+</ul>
+</li>
+<li><code>git clone</code>默认只能看到master分支，如果需要在其他分支上开发，则必须创建远程origin的<branch-name>分支到本地<code>git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;</code></branch-name></li>
+<li>多人协作流程<ul>
+<li><code>git push origin &lt;branch-name&gt;</code>推送分支</li>
+<li>推送分支失败时，先用<code>git pull</code>将分支先拉下来</li>
+<li>在本地解决冲突，就可以<code>push</code>上去了</li>
+</ul>
+</li>
+</ul>
+<h3 id="6、标签管理"><a href="#6、标签管理" class="headerlink" title="6、标签管理"></a>6、标签管理</h3><ul>
+<li>创建标签<ul>
+<li><code>git tag &lt;tag-name&gt;</code></li>
+<li><code>git tag &lt;tag-name&gt; &lt;commit-id&gt;</code>指定<code>commit</code>打标签</li>
+<li><code>git tag -a &lt;tag-name&gt; -m &lt;state&gt; &lt;commit-id&gt;</code>，<code>-a</code>指定标签名，<code>-m</code>添加说明，<code>-s</code>通过私钥创建标签</li>
+</ul>
+</li>
+<li><code>git show &lt;tag-name&gt;</code>查看标签信息</li>
+<li><code>git tag -d &lt;tag-name&gt;</code>删除标签<font color="red">创建的标签只存储在本地，不会自动推送到远程</font></li>
+<li><code>git push origin &lt;tag-name&gt;</code>推送指定标签到远程</li>
+<li><code>git push origin --tags</code>一次性推送所有未推送的标签</li>
+<li>删除远程标签<ul>
+<li><code>git tag -d &lt;tag-name&gt;</code>先删除本地标签</li>
+<li><code>git push origin :refs/tags/&lt;tag-name&gt;</code>再删除远程标签</li>
+</ul>
+</li>
+</ul>
+<h3 id="7、忽略特殊文件"><a href="#7、忽略特殊文件" class="headerlink" title="7、忽略特殊文件"></a>7、忽略特殊文件</h3><ul>
+<li>在根目录下创建<code>.gitignore</code>文件，配置该文件即可忽略特殊文件，最后将此文件提交到git即可</li>
+<li><code>git add -f &lt;filename&gt;</code>此命令可以强制添加提交文件</li>
+</ul>
+<hr>
+<p><strong>参考资料</strong></p>
+<ol>
+<li><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a></li>
+<li><code>.gitignore</code>配置文件参考资料：<a href="https://github.com/github/gitignore" target="_blank" rel="external">https://github.com/github/gitignore</a></li>
+</ol>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/06/09/git/">
+    <time datetime="2016-06-09T01:00:25.000Z" class="entry-date">
+        2016-06-09
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-axure学习" class="post-axure学习 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -317,6 +466,10 @@ npm install gulp-minify-css --save-dev
       <ul>
         
           <li>
+            <a href="/2016/06/09/git/">Git命令</a>
+          </li>
+        
+          <li>
             <a href="/2016/05/15/axure学习/">axure学习</a>
           </li>
         
@@ -337,7 +490,7 @@ npm install gulp-minify-css --save-dev
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/axure/">axure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型设计/">原型设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/axure/">axure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型设计/">原型设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文章/">文章</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </aside>
 
@@ -346,7 +499,7 @@ npm install gulp-minify-css --save-dev
   <aside class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-content tagcloud">
-      <a href="/tags/axure/" style="font-size: 10px;">axure</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/原型设计/" style="font-size: 10px;">原型设计</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a>
+      <a href="/tags/axure/" style="font-size: 10px;">axure</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/原型设计/" style="font-size: 10px;">原型设计</a> <a href="/tags/文章/" style="font-size: 10px;">文章</a>
     </div>
   </aside>
 
